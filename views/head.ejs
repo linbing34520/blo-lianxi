@@ -1,0 +1,33 @@
+<div class="nav">
+    <div class="nav-setting col-xs-1">
+        <div class="meunicon">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+
+        <% if(user){ %>
+            <div class="menu" style="display: none;">
+                    <a href="">个人主页</a>
+                    <a href="/msg">发表文章</a>
+                    <a href="/logout">登出</a>
+            </div>
+
+
+        <% }else{ %>
+            <div class="menu" style="display: none;">
+                    <a href="/login">登录</a>
+                    <a href="/reg">注册</a>
+                </div>
+
+            <% } %>
+
+        </div>
+
+        <div class="logo text-center col-md-8 col-md-offset-2">
+            <h1 id="logo"><a href="/">v-blog</h1></a></h1>
+            <h6 class="title">my frist blog</h6>
+        </div>
+    </div>

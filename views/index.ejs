@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>博客页面</title>
+    <style>
+        #logo>a {
+            display: block;
+            color: #4fc08d;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .marg {
+            margin-top: 4%;
+        }
+
+        .title {
+            color: #999;
+            font-size: 14px;
+            line-height: 26px;
+        }
+
+        .nav-setting {
+            position: fixed;
+            right: 30px;
+            top: 35px;
+            z-index: 999;
+        }
+
+        .menu {
+            width: 100%;
+            height: 116px;
+            text-align: center;
+            line-height: 40px;
+            box-shadow: 0px 0px 6px #999;
+            border-radius: 4px;
+        }
+
+        .menu a {
+            display: block;
+            color: #333;
+        }
+
+        .menu a:hover {
+            background: #eee;
+        }
+
+        .meunicon ul li {
+            width: 20px;
+            height: 3px;
+            margin-top: 10%;
+            list-style: none;
+            background: #333333;
+            border-radius: 6px;
+        }
+
+        .storyc {
+            box-shadow: 0px 0px 2px #999;
+            border-radius: 4px;
+            padding: 2%;
+        }
+
+        .pic {
+
+            line-height: 60px;
+            border-radius: 40px;
+            color: #fff;
+        }
+
+        .inf {
+            height: 40px;
+            width: 100%;
+            white-space: nowrap;
+            overflow-x: scroll;
+        }
+
+        .mainsto a {
+            color: #4fc08d;
+            font-weight: bold;
+            line-height: 30px;
+        }
+
+        .mainsto h4 {
+            cursor: pointer;
+        }
+
+        .bootom span {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .mart {
+            margin-top: 2%;
+        }
+
+        .storyy {
+            margin-bottom: 2%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container marg">
+        <%- include('head.ejs') %>
+
+        <% for(var i=0;i<as.length;i++){ %>
+        <div class="story storyy col-md-8 col-md-offset-2">
+            <div class="pic col-md-1">
+                <a href="">
+                    <img src="<%- '/img/'+ as[i].avatar %>" alt="" width="60px">
+                </a>
+            </div>
+            <div class="content storyc col-md-9 col-md-offset-1">
+                <div class="mainsto">
+                    <h4><a href="/xiangq/<%- as[i].id %>"><%- as[i].title %></a></h4>
+                    <h5 class="inf"><%- as[i].context %></h5>
+                </div>
+                <div class="bootom col-md-12">
+                    <div class="rightsto col-md-6"><span><%- as[i].time %></span> </div>
+                    <div class=" col-md-4 col-md-offset-2 text-right"><span>浏览(6)</span><span>留言(0)</span> </div>
+                </div>
+            </div>
+        </div>
+
+
+        <% } %>
+
+
+
+
+
+    </div>
+
+    <script>
+        var menu = document.getElementsByClassName('menu')[0];
+        var meunicon = document.getElementsByClassName('meunicon')[0];
+        var mask = true;
+        meunicon.onclick = function () {
+            if (mask) {
+                menu.style.display = 'block';
+                mask = false;
+            } else {
+                menu.style.display = 'none';
+                mask = true
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
